@@ -6,7 +6,7 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 12:47:59 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/26 19:44:33 by alferran         ###   ########lyon.fr   */
+/*   Updated: 2020/09/26 20:18:36 by alferran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,11 @@ int		main(int ac, char **av)
 	}
 	if (!checkdict(file))
 	{
-		write(1, "Error\n", 6);
+		write(1, "Dict Error\n", 11);
 		return (0);
 	}
 	ft_catnumber(nbr, file);
+	write(1, "\n", 1);
 	i = 0;
 	while (file[i])
 	{
