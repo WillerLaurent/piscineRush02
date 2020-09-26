@@ -6,7 +6,7 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 12:47:59 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/26 15:55:59 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/26 16:50:43 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 
 char	**ft_readfile(char *name);
-int		checkdict(char *dico);
+int		checkdict(char **dico);
 
 
 int		testnbr(char *str)
@@ -48,6 +48,11 @@ int		main(int ac, char **av)
 		file = ft_readfile(av[1]);
 	}
 	else
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
+	if (!checkdict(file))
 	{
 		write(1, "Error\n", 6);
 		return (0);

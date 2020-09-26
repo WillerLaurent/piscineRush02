@@ -6,7 +6,7 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 15:44:42 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/26 15:45:01 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/26 16:42:47 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,6 @@ char	**ft_split(char *str, char *charset)
 		}
 	}
 	result[j] = 0;
+	free(str);
 	return (result);
 }

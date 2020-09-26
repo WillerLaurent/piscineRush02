@@ -6,7 +6,7 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 14:33:02 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/26 15:51:11 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/26 16:49:18 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,55 @@ char	**ft_readfile(char *name)
 	ret[count] = 0;
 	return (ft_split(ret, "\n"));
 }
-/*
+
+int	ft_linecmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while ((s1[i] != ' ' && s1[i] != ':') || (s2[i] != ' ' && s2[i] != ':'))
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}
+
 int		checkdict(char **dico)
 {
 	int		i;
-	char	**assign;
-	int		nblines;
+	int		j;
+	i = 0;
+	while (dico[i + 1])
+	{
+		j = i + 1;
+		while (dico[j])
+		{
 
+			if (ft_linecmp(dico[i], dico[j]) == 0)
+				return (0);
+			j++;
+		}
+		i++;
+	}
 	i = 0;
 	while (dico[i])
 	{
-		if (dico[i] == '\n')
-			nblines++;
+		j = 0;
+		while (dico[i][j] >= '0' && dico[i][j] <= '9')
+			j++;
+		while (dico[i][j] == ' ')
+			j++;
+		if (dico[i][j] == ':')
+			j++;
+		while (dico[i][j] == ' ')
+			j++;
+		while (dico[i][j] >= 32 && dico[i][j] <= 126)
+			j++;
+		if (dico[i][j] != 0)
+			return (0);
 		i++;
 	}
-}*/
+	return (1);
+}
