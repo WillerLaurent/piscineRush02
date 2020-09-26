@@ -6,7 +6,7 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 12:47:59 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/26 16:50:43 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/26 19:44:33 by alferran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 char	**ft_readfile(char *name);
 int		checkdict(char **dico);
-
+void	ft_catnumber(char *nbr, char **dico);
 
 int		testnbr(char *str)
 {
@@ -38,14 +38,17 @@ int		main(int ac, char **av)
 {
 	char	**file;
 	int		i;
+	char	*nbr;
 
 	if (ac == 2 && testnbr(av[1]))
 	{
 		file = ft_readfile("numbers.dict");
+		nbr = av[1];
 	}
 	else if (ac == 3 && testnbr(av[2]))
 	{
 		file = ft_readfile(av[1]);
+		nbr = av[2];
 	}
 	else
 	{
@@ -57,6 +60,7 @@ int		main(int ac, char **av)
 		write(1, "Error\n", 6);
 		return (0);
 	}
+	ft_catnumber(nbr, file);
 	i = 0;
 	while (file[i])
 	{

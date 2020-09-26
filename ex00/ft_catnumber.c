@@ -6,9 +6,13 @@
 /*   By: lwiller <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 15:42:22 by lwiller           #+#    #+#             */
-/*   Updated: 2020/09/26 19:27:25 by alferran         ###   ########lyon.fr   */
+/*   Updated: 2020/09/26 19:49:48 by alferran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+void	ft_aff(char *nbr, char **dico);
+
+#include <stdlib.h>
 
 int	ft_nbcmp(char *s1, char *s2)
 {
@@ -57,6 +61,7 @@ void	ft_catnumber(char *nbr, char **dico)
 	int		i;
 	char	*cut;
 	int		j;
+	char	div[2];
 
 	ln_str = ft_strlen(nbr);
 	while (nbr[i])
@@ -77,8 +82,10 @@ void	ft_catnumber(char *nbr, char **dico)
 			j = 0;
 			if (!check_addon(cut, dico))
 			{
-				cut[0] = 1;
-				ft_aff(nbr[i], dico);
+				cut[0] = '1';
+				div[0] = nbr[i];
+				div[1] = 0;
+				ft_aff(div, dico);
 				ft_aff(cut, dico);
 			}
 			free(cut);
@@ -87,10 +94,5 @@ void	ft_catnumber(char *nbr, char **dico)
 		else
 			return ;
 	}
-
-}
-
-int main(int argc, char **argv)
-{
 
 }

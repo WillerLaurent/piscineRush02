@@ -2,7 +2,7 @@ NAME			= rush-02
 SRCS			= main.c ft_readfile.c
 OBJS			= main.o ft_readfile.o
 HEADER			= .
-CC				= gcc
+CC				= cc
 CFLAGS			= -Wall -Wextra -Werror
 RM				= rm -f
 
