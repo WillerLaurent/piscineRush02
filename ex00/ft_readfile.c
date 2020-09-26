@@ -6,7 +6,7 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 14:33:02 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/26 14:48:54 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/26 15:51:11 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char	*ft_readfile(char *name)
+char	**ft_split(char	*str, char *charset);
+
+char	**ft_readfile(char *name)
 {
 	char	file[11];
 	int		nb;
@@ -38,6 +40,20 @@ char	*ft_readfile(char *name)
 	fd = open(name, O_RDONLY);
 	read(fd, ret, count);
 	ret[count] = 0;
-	printf("%s", ret);
-	return (ret);
+	return (ft_split(ret, "\n"));
 }
+/*
+int		checkdict(char **dico)
+{
+	int		i;
+	char	**assign;
+	int		nblines;
+
+	i = 0;
+	while (dico[i])
+	{
+		if (dico[i] == '\n')
+			nblines++;
+		i++;
+	}
+}*/
