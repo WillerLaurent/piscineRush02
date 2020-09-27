@@ -6,11 +6,25 @@
 /*   By: alferran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 16:10:11 by alferran          #+#    #+#             */
-/*   Updated: 2020/09/27 16:30:55 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 17:21:29 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush02.h"
+
+char	*ft_readall(char *name,int count)
+{
+	char	*ret;
+	int		fd;
+
+	if (!(ret = (char *)malloc(sizeof(char) * (count + 1))))
+		return (0);
+	fd = open(name, O_RDONLY);
+	read(fd, ret, count);
+	ret[count] = 0;
+	close(fd);
+	return (ret);
+}
 
 char	**ft_readfile(char *name)
 {
@@ -29,11 +43,7 @@ char	**ft_readfile(char *name)
 		count += nb;
 	}
 	close(fd);
-	if (!(ret = (char *)malloc(sizeof(char) * (count + 1))))
-		return (0);
-	fd = open(name, O_RDONLY);
-	read(fd, ret, count);
-	ret[count] = 0;
+	ret = ft_readall(name, count);
 	return (ft_split(ret, "\n"));
 }
 
