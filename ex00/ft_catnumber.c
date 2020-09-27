@@ -6,14 +6,11 @@
 /*   By: lwiller <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 15:42:22 by lwiller           #+#    #+#             */
-/*   Updated: 2020/09/26 22:17:52 by alferran         ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 11:48:53 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_aff(char *nbr, char **dico);
-
-#include <stdlib.h>
-#include <unistd.h>
+#include "rush02.h"
 
 int	ft_nbcmp(char *s1, char *s2)
 {

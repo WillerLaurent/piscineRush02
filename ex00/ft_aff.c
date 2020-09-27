@@ -6,16 +6,13 @@
 /*   By: alferran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 19:29:57 by alferran          #+#    #+#             */
-/*   Updated: 2020/09/26 19:54:43 by alferran         ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 14:15:23 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "rush02.h"
 
-int ft_nbcmp(char *s1,char *s2);
-int ft_strlen(char *str);
-
-void ft_aff(char *nbr, char **dico)
+void	ft_aff(char *nbr, char **dico)
 {
 	int i;
 	int j;
@@ -46,3 +43,39 @@ void ft_aff(char *nbr, char **dico)
 	}
 }
 
+void	ft_aff_all(char **tab, char **dico, int size)
+{
+	int		i;
+	int		j;
+	int		nb_zeros;
+	char	*sep;
+
+	i = 0;
+	while (i < size)
+	{
+		if (ft_atoi(tab[i]) != 0)
+		{
+			ft_catnumber(tab[i], dico);
+			if (i < size - 1)
+			{
+				nb_zeros = 3 * (size - i - 1);
+				if (!(sep = (char *)malloc(sizeof(char) * (nb_zeros + 2))))
+					return ;
+				j = 1;
+				sep[0] = '1';
+				while (j < nb_zeros + 1)
+				{
+					sep[j] = '0';
+					j++;
+				}
+				sep[j] = '\0';
+				write(1, " ", 1);
+				ft_aff(sep, dico);
+				write(1, " ", 1);
+				free(sep);
+			}
+		}
+		i++;
+	}
+
+}

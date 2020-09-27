@@ -6,17 +6,11 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 14:33:02 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/26 16:49:18 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 11:49:25 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-char	**ft_split(char	*str, char *charset);
+#include "rush02.h"
 
 char	**ft_readfile(char *name)
 {
