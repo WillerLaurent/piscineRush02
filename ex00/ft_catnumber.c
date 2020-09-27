@@ -6,13 +6,13 @@
 /*   By: lwiller <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 15:42:22 by lwiller           #+#    #+#             */
-/*   Updated: 2020/09/27 11:48:53 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 15:26:23 by alferran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush02.h"
 
-int	ft_nbcmp(char *s1, char *s2)
+int		ft_nbcmp(char *s1, char *s2)
 {
 	int i;
 
@@ -60,50 +60,42 @@ int		check_addon(char *nbr, char **dico, int i)
 	return (0);
 }
 
+void	for_aff(char *div, char nbr, char *cut, char **dico)
+{
+	cut[0] = '1';
+	div[0] = nbr;
+	div[1] = 0;
+	ft_aff(div, dico);
+	write(1, " ", 1);
+	ft_aff(cut, dico);
+	write(1, " ", 1);
+}
+
 void	ft_catnumber(char *nbr, char **dico)
 {
-	int		ln_str;
 	int		i;
 	char	*cut;
 	int		j;
 	char	div[2];
 
-	ln_str = ft_strlen(nbr);
-	i = 0;
-	while (nbr[i])
+	i = -1;
+	while (nbr[++i])
 	{
 		if (nbr[i] != '0')
 		{
 			if (!check_addon(&nbr[i], dico, 0))
 			{
-				if (!(cut = (char *)malloc(sizeof(char) * (ln_str + 1))))
+				if (!(cut = malloc(sizeof(char) * (ft_strlen(nbr) + 1))))
 					return ;
 				cut[0] = nbr[i];
-				j = 1;
-				while (j < ft_strlen(&nbr[i]))
-				{
+				j = 0;
+				while (++j < ft_strlen(&nbr[i]))
 					cut[j] = '0';
-					j++;
-				}
 				cut[j] = '\0';
 				if (!check_addon(cut, dico, 1))
-				{
-					cut[0] = '1';
-					div[0] = nbr[i];
-					div[1] = 0;
-					ft_aff(div, dico);
-					write(1, " ", 1);
-					ft_aff(cut, dico);
-					write(1, " ", 1);
-				}
+					for_aff(div, nbr[i], cut, dico);
 				free(cut);
-				i++;
 			}
-			else
-				return ;
 		}
-		else 
-			i++;
 	}
-
 }
