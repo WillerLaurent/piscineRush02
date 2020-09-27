@@ -6,13 +6,13 @@
 /*   By: alferran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 16:10:11 by alferran          #+#    #+#             */
-/*   Updated: 2020/09/27 17:21:29 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 18:02:00 by alferran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush02.h"
 
-char	*ft_readall(char *name,int count)
+char	*ft_readall(char *name, int count)
 {
 	char	*ret;
 	int		fd;
@@ -67,8 +67,8 @@ int		check_dico(char **dico)
 	int i;
 	int j;
 
-	i = 0;
-	while (dico[i])
+	i = -1;
+	while (dico[++i])
 	{
 		j = 0;
 		while (dico[i][j] >= '0' && dico[i][j] <= '9')
@@ -87,7 +87,6 @@ int		check_dico(char **dico)
 			j++;
 		if (dico[i][j] != 0)
 			return (0);
-		i++;
 	}
 	return (1);
 }
