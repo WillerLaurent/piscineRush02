@@ -6,27 +6,17 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 11:30:24 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/27 14:05:06 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 15:58:47 by lwiller          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush02.h"
 
-void	ft_splitnbr(char *nbr, char **dico)
+void	ft_splitnbr_box(char *nbr, char **splitted, int size)
 {
-	char	**splitted;
-	int		size;
-	int		i;
-	int		j;
-	int		len;
+	int i;
+	int j;
 
-	len = ft_strlen(nbr);
-	if (len % 3 == 0)
-		size = len / 3;
-	else
-		size = len / 3 + 1;
-	if (!(splitted = (char **)malloc(sizeof(char *) * size)))
-		return ;
 	i = 0;
 	j = 0;
 	while (i < size)
@@ -43,6 +33,23 @@ void	ft_splitnbr(char *nbr, char **dico)
 		}
 		i++;
 	}
+}
+
+void	ft_splitnbr(char *nbr, char **dico)
+{
+	char	**splitted;
+	int		size;
+	int		i;
+	int		len;
+
+	len = ft_strlen(nbr);
+	if (len % 3 == 0)
+		size = len / 3;
+	else
+		size = len / 3 + 1;
+	if (!(splitted = (char **)malloc(sizeof(char *) * size)))
+		return ;
+	ft_splitnbr_box(nbr, splitted, size);
 	ft_aff_all(splitted, dico, size);
 	i = 0;
 	while (i < size)
