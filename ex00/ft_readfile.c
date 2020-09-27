@@ -6,7 +6,7 @@
 /*   By: alferran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 16:10:11 by alferran          #+#    #+#             */
-/*   Updated: 2020/09/27 16:10:12 by alferran         ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 16:16:19 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ int		checkdict(char **dico)
 		}
 		i++;
 	}
+	if (!ft_parsedict(dico))
+		return (0);
 	if (check_dico(dico))
 		return (1);
 	return (0);
