@@ -6,7 +6,7 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 11:39:10 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/27 16:01:39 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 16:13:57 by lwiller          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int		ft_nbcmp(char *s1,char *s2);
+int		ft_nbcmp(char *s1, char *s2);
 int		ft_strlen(char *str);
 void	ft_aff(char *nbr, char **dico);
 int		ft_atoi(char *str);
