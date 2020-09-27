@@ -6,7 +6,7 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 12:47:59 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/27 14:02:04 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 17:00:34 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int		main(int ac, char **av)
 		write(1, "\n", 1);
 		return (0);
 	}
-	ft_splitnbr(nbr, file);
+	if (!check_addon(nbr, file, 0))
+		ft_splitnbr(nbr, file);
 	write(1, "\n", 1);
 	i = 0;
 	while (file[i])

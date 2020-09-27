@@ -6,7 +6,7 @@
 /*   By: alferran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 16:10:11 by alferran          #+#    #+#             */
-/*   Updated: 2020/09/27 16:16:19 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 16:30:55 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,16 @@ int		check_dico(char **dico)
 		j = 0;
 		while (dico[i][j] >= '0' && dico[i][j] <= '9')
 			j++;
+		if (dico[i][j] == 0 || j == 0)
+			return (0);
 		while (dico[i][j] == ' ')
 			j++;
 		if (dico[i][j] == ':')
 			j++;
 		while (dico[i][j] == ' ')
 			j++;
+		if (dico[i][j] == 0 || j == 0)
+			return (0);
 		while (dico[i][j] >= 32 && dico[i][j] <= 126)
 			j++;
 		if (dico[i][j] != 0)
@@ -83,6 +87,8 @@ int		checkdict(char **dico)
 	int		i;
 	int		j;
 
+	if (!ft_parsedict(dico))
+		return (0);
 	i = 0;
 	while (dico[i + 1])
 	{
@@ -95,9 +101,7 @@ int		checkdict(char **dico)
 		}
 		i++;
 	}
-	if (!ft_parsedict(dico))
+	if (!check_dico(dico))
 		return (0);
-	if (check_dico(dico))
-		return (1);
-	return (0);
+	return (1);
 }

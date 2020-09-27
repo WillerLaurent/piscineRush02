@@ -6,7 +6,7 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 11:39:10 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/27 16:13:57 by lwiller          ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 16:56:33 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ char	*ft_strdup(char *src, int nbc);
 void	ft_aff_all(char **tab, char **dico, int size);
 int		ft_linecmp(char *s1, char *s2);
 int		ft_parsedict(char **dico);
+int		check_addon(char *nbr, char **dico, int i);
 
 #endif

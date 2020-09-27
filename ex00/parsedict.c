@@ -6,7 +6,7 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 14:55:45 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/27 15:42:35 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 16:39:30 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_parsedict(char **dico)
 	while (ref[i])
 	{
 		j = 0;
-		while (ft_linecmp(ref[i], dico[j]) && dico[j])
+		while (dico[j] && ft_linecmp(ref[i], dico[j]))
 			j++;
 		if (!dico[j])
 		{

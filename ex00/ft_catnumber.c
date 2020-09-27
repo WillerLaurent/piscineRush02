@@ -6,7 +6,7 @@
 /*   By: lwiller <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 15:42:22 by lwiller           #+#    #+#             */
-/*   Updated: 2020/09/27 15:26:23 by alferran         ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 16:42:50 by astucky          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ void	ft_catnumber(char *nbr, char **dico)
 					for_aff(div, nbr[i], cut, dico);
 				free(cut);
 			}
+			else
+				return ;
 		}
 	}
 }
