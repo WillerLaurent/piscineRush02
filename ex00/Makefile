@@ -20,3 +20,9 @@ fclean:			clean
 				${RM} ${NAME}
 
 re:				fclean all
+
+safe:			
+				chmod 444 ref.dict
+
+norme:			
+				norminette -R CheckDefine
