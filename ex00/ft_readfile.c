@@ -6,7 +6,7 @@
 /*   By: astucky <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 14:33:02 by astucky           #+#    #+#             */
-/*   Updated: 2020/09/27 15:41:28 by astucky          ###   ########lyon.fr   */
+/*   Updated: 2020/09/27 15:59:46 by alferran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	**ft_readfile(char *name)
 	return (ft_split(ret, "\n"));
 }
 
-int	ft_linecmp(char *s1, char *s2)
+int		ft_linecmp(char *s1, char *s2)
 {
 	int i;
 
@@ -52,23 +52,11 @@ int	ft_linecmp(char *s1, char *s2)
 	return (0);
 }
 
-int		checkdict(char **dico)
+int		check_dico(char **dico)
 {
-	int		i;
-	int		j;
-	i = 0;
-	while (dico[i + 1])
-	{
-		j = i + 1;
-		while (dico[j])
-		{
+	int i;
+	int j;
 
-			if (ft_linecmp(dico[i], dico[j]) == 0)
-				return (0);
-			j++;
-		}
-		i++;
-	}
 	i = 0;
 	while (dico[i])
 	{
@@ -88,4 +76,26 @@ int		checkdict(char **dico)
 		i++;
 	}
 	return (1);
+}
+
+int		checkdict(char **dico)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (dico[i + 1])
+	{
+		j = i + 1;
+		while (dico[j])
+		{
+			if (ft_linecmp(dico[i], dico[j]) == 0)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	if (check_dico(dico))
+		return (1);
+	return (0);
 }
